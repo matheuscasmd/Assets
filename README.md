@@ -12,5 +12,9 @@ Esse repositório poderá ser atualizado ao longo do semestre para acrescentar n
 
 ## Importante:   
 
-Para que os códigos dos Labs encontrem esse repositório voce deve ajustar a sua localização de acordo com o servidor *web* que voce vai utilizar: *VSCode Live Server*, *Python Web Server*, *Apache*, etc. 
+Para que os códigos dos Labs encontrem esse repositório voce deve ajustar a sua localização de acordo com o servidor *web* que voce vai utilizar: 
+
+- [*VSCode Live Server*](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) ou 
+- [*Python Web Server*](https://realpython.com/python-http-server/).
+
 Consulte a documentação específica do seu servidor *web* e em caso de dúvidas consulte seu professor buscando auxílio.
