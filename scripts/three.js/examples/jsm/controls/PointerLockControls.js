@@ -31,6 +31,7 @@ const _lockEvent = { type: 'lock' };
  */
 const _unlockEvent = { type: 'unlock' };
 
+const _MOUSE_SENSITIVITY = 0.002;
 const _PI_2 = Math.PI / 2;
 
 /**
@@ -55,6 +56,7 @@ const _PI_2 = Math.PI / 2;
  * ```
  *
  * @augments Controls
+ * @three_import import { PointerLockControls } from 'three/addons/controls/PointerLockControls.js';
  */
 class PointerLockControls extends Controls {
 
@@ -109,13 +111,15 @@ class PointerLockControls extends Controls {
 
 		if ( this.domElement !== null ) {
 
-			this.connect();
+			this.connect( this.domElement );
 
 		}
 
 	}
 
-	connect() {
+	connect( element ) {
+
+		super.connect( element );
 
 		this.domElement.ownerDocument.addEventListener( 'mousemove', this._onMouseMove );
 		this.domElement.ownerDocument.addEventListener( 'pointerlockchange', this._onPointerlockChange );
@@ -134,14 +138,6 @@ class PointerLockControls extends Controls {
 	dispose() {
 
 		this.disconnect();
-
-	}
-
-	getObject() {
-
-		console.warn( 'THREE.PointerLockControls: getObject() has been deprecated. Use controls.object instead.' ); // @deprecated r169
-
-		return this.object;
 
 	}
 
@@ -198,7 +194,7 @@ class PointerLockControls extends Controls {
 
 	/**
 	 * Activates the pointer lock.
-	 * 
+	 *
 	 * @param {boolean} [unadjustedMovement=false] - Disables OS-level adjustment for mouse acceleration, and accesses raw mouse input instead.
 	 * Setting it to true will disable mouse acceleration.
 	 */
@@ -230,8 +226,8 @@ function onMouseMove( event ) {
 	const camera = this.object;
 	_euler.setFromQuaternion( camera.quaternion );
 
-	_euler.y -= event.movementX * 0.002 * this.pointerSpeed;
-	_euler.x -= event.movementY * 0.002 * this.pointerSpeed;
+	_euler.y -= event.movementX * _MOUSE_SENSITIVITY * this.pointerSpeed;
+	_euler.x -= event.movementY * _MOUSE_SENSITIVITY * this.pointerSpeed;
 
 	_euler.x = Math.max( _PI_2 - this.maxPolarAngle, Math.min( _PI_2 - this.minPolarAngle, _euler.x ) );
 

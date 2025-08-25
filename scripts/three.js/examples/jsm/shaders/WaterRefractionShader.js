@@ -1,10 +1,13 @@
-/** @module WaterRefractionShader */
+/**
+ * @module WaterRefractionShader
+ * @three_import import { WaterRefractionShader } from 'three/addons/shaders/WaterRefractionShader.js';
+ */
 
 /**
  * Basic water refraction shader.
  *
  * @constant
- * @type {Object}
+ * @type {ShaderMaterial~Shader}
  */
 const WaterRefractionShader = {
 

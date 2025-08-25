@@ -1,11 +1,14 @@
-/** @module BokehShader */
+/**
+ * @module BokehShader
+ * @three_import import { BokehShader } from 'three/addons/shaders/BokehShader.js';
+ */
 
 /**
  * Depth-of-field shader with bokeh ported from
  * [GLSL shader by Martins Upitis]{@link http://artmartinsh.blogspot.com/2010/02/glsl-lens-blur-filter-with-bokeh.html}.
  *
  * @constant
- * @type {Object}
+ * @type {ShaderMaterial~Shader}
  */
 const BokehShader = {
 

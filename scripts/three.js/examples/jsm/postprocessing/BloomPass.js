@@ -21,6 +21,7 @@ import { ConvolutionShader } from '../shaders/ConvolutionShader.js';
  * ```
  *
  * @augments Pass
+ * @three_import import { BloomPass } from 'three/addons/postprocessing/BloomPass.js';
  */
 class BloomPass extends Pass {
 
@@ -73,7 +74,7 @@ class BloomPass extends Pass {
 		this.convolutionUniforms = UniformsUtils.clone( convolutionShader.uniforms );
 
 		this.convolutionUniforms[ 'uImageIncrement' ].value = BloomPass.blurX;
-		this.convolutionUniforms[ 'cKernel' ].value = ConvolutionShader.buildKernel( sigma );
+		this.convolutionUniforms[ 'cKernel' ].value = buildKernel( sigma );
 
 		/**
 		 * The convolution pass material.
@@ -166,7 +167,7 @@ class BloomPass extends Pass {
 	 * Sets the size of the pass.
 	 *
 	 * @param {number} width - The width to set.
-	 * @param {number} height - The width to set.
+	 * @param {number} height - The height to set.
 	 */
 	setSize( width, height ) {
 
@@ -234,5 +235,40 @@ const CombineShader = {
 
 BloomPass.blurX = new Vector2( 0.001953125, 0.0 );
 BloomPass.blurY = new Vector2( 0.0, 0.001953125 );
+
+
+function gauss( x, sigma ) {
+
+	return Math.exp( - ( x * x ) / ( 2.0 * sigma * sigma ) );
+
+}
+
+function buildKernel( sigma ) {
+
+	// We loop off the sqrt(2 * pi) * sigma term, since we're going to normalize anyway.
+
+	const kMaxKernelSize = 25;
+	let kernelSize = 2 * Math.ceil( sigma * 3.0 ) + 1;
+
+	if ( kernelSize > kMaxKernelSize ) kernelSize = kMaxKernelSize;
+
+	const halfWidth = ( kernelSize - 1 ) * 0.5;
+
+	const values = new Array( kernelSize );
+	let sum = 0.0;
+	for ( let i = 0; i < kernelSize; ++ i ) {
+
+		values[ i ] = gauss( i - halfWidth, sigma );
+		sum += values[ i ];
+
+	}
+
+	// normalize the kernel
+
+	for ( let i = 0; i < kernelSize; ++ i ) values[ i ] /= sum;
+
+	return values;
+
+}
 
 export { BloomPass };

@@ -4,13 +4,16 @@ import {
 	Matrix4
 } from 'three';
 
-/** @module VelocityShader */
+/**
+ * @module VelocityShader
+ * @three_import import { VelocityShader } from 'three/addons/shaders/VelocityShader.js';
+ */
 
 /**
  * Mesh velocity shader by @bhouston.
  *
  * @constant
- * @type {Object}
+ * @type {ShaderMaterial~Shader}
  */
 const VelocityShader = {
 

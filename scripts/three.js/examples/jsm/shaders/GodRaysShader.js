@@ -3,7 +3,10 @@ import {
 	Vector3
 } from 'three';
 
-/** @module GodRaysShader */
+/**
+ * @module GodRaysShader
+ * @three_import import * as GodRaysShader from 'three/addons/shaders/GodRaysShader.js';
+ */
 
 /**
  * God-rays (crepuscular rays)
@@ -22,7 +25,7 @@ import {
  * - [Sousa2008, Crysis Next Gen Effects, GDC2008]{@link http://www.crytek.com/sites/default/files/GDC08_SousaT_CrysisEffects.ppt}.
  *
  * @constant
- * @type {Object}
+ * @type {ShaderMaterial~Shader}
  */
 const GodRaysDepthMaskShader = {
 
@@ -77,7 +80,7 @@ const GodRaysDepthMaskShader = {
  * decreased distance between samples.
  *
  * @constant
- * @type {Object}
+ * @type {ShaderMaterial~Shader}
  */
 const GodRaysGenerateShader = {
 
@@ -201,7 +204,7 @@ const GodRaysGenerateShader = {
  * fGodRayIntensity attenuates the god rays.
  *
  * @constant
- * @type {Object}
+ * @type {ShaderMaterial~Shader}
  */
 const GodRaysCombineShader = {
 

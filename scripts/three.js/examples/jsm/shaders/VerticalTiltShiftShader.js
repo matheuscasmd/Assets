@@ -1,4 +1,7 @@
-/** @module VerticalTiltShiftShader */
+/**
+ * @module VerticalTiltShiftShader
+ * @three_import import { VerticalTiltShiftShader } from 'three/addons/shaders/VerticalTiltShiftShader.js';
+ */
 
 /**
  * Simple fake tilt-shift effect, modulating two pass Gaussian blur (see above) by vertical position
@@ -9,7 +12,7 @@
  * - "r" parameter control where "focused" horizontal line lies
  *
  * @constant
- * @type {Object}
+ * @type {ShaderMaterial~Shader}
  */
 const VerticalTiltShiftShader = {
 

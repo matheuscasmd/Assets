@@ -2,7 +2,10 @@ import {
 	Vector2
 } from 'three';
 
-/** @module DepthLimitedBlurShader */
+/**
+ * @module DepthLimitedBlurShader
+ * @three_import import { DepthLimitedBlurShader, BlurShaderUtils } from 'three/addons/shaders/DepthLimitedBlurShader.js';
+ */
 
 /**
  * TODO
@@ -10,7 +13,7 @@ import {
  * Used by {@link SAOPass}.
  *
  * @constant
- * @type {Object}
+ * @type {ShaderMaterial~Shader}
  */
 const DepthLimitedBlurShader = {
 

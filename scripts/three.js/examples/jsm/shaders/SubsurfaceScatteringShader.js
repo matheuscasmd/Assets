@@ -14,7 +14,10 @@ function replaceAll( string, find, replace ) {
 const meshphong_frag_head = ShaderChunk[ 'meshphong_frag' ].slice( 0, ShaderChunk[ 'meshphong_frag' ].indexOf( 'void main() {' ) );
 const meshphong_frag_body = ShaderChunk[ 'meshphong_frag' ].slice( ShaderChunk[ 'meshphong_frag' ].indexOf( 'void main() {' ) );
 
-/** @module SubsurfaceScatteringShader */
+/**
+ * @module SubsurfaceScatteringShader
+ * @three_import import { SubsurfaceScatteringShader } from 'three/addons/shaders/SubsurfaceScatteringShader.js';
+ */
 
 /**
  * Subsurface Scattering shader.
@@ -22,7 +25,7 @@ const meshphong_frag_body = ShaderChunk[ 'meshphong_frag' ].slice( ShaderChunk[ 
  * Based on GDC 2011 – [Approximating Translucency for a Fast, Cheap and Convincing Subsurface Scattering Look]{@link https://colinbarrebrisebois.com/2011/03/07/gdc-2011-approximating-translucency-for-a-fast-cheap-and-convincing-subsurface-scattering-look/}
  *
  * @constant
- * @type {Object}
+ * @type {ShaderMaterial~Shader}
  */
 const SubsurfaceScatteringShader = {
 

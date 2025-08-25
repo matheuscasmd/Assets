@@ -11,13 +11,14 @@ import {
  * - [3D Game Shaders For Beginners, Screen Space Reflection (SSR)]{@link https://lettier.github.io/3d-game-shaders-for-beginners/screen-space-reflection.html}.
  *
  * @module SSRShader
+ * @three_import import * as SSRShader from 'three/addons/shaders/SSRShader.js';
  */
 
 /**
  * SSR shader.
  *
  * @constant
- * @type {Object}
+ * @type {ShaderMaterial~Shader}
  */
 const SSRShader = {
 
@@ -249,7 +250,7 @@ const SSRShader = {
  * SSR Depth shader.
  *
  * @constant
- * @type {Object}
+ * @type {ShaderMaterial~Shader}
  */
 const SSRDepthShader = {
 
@@ -324,7 +325,7 @@ const SSRDepthShader = {
  * SSR Blur shader.
  *
  * @constant
- * @type {Object}
+ * @type {ShaderMaterial~Shader}
  */
 const SSRBlurShader = {
 

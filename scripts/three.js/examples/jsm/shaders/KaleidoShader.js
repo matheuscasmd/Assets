@@ -1,4 +1,7 @@
-/** @module KaleidoShader */
+/**
+ * @module KaleidoShader
+ * @three_import import { KaleidoShader } from 'three/addons/shaders/KaleidoShader.js';
+ */
 
 /**
  * Kaleidoscope Shader.
@@ -10,7 +13,7 @@
  * angle: initial angle in radians
  *
  * @constant
- * @type {Object}
+ * @type {ShaderMaterial~Shader}
  */
 const KaleidoShader = {
 

@@ -7,15 +7,18 @@ import {
  * Collection of toon shaders.
  *
  * @module TriangleBlurShader
- * */
+ * @three_import import * as ToonShader from 'three/addons/shaders/ToonShader.js';
+ */
 
 /**
  * Toon1 shader.
  *
  * @constant
- * @type {Object}
+ * @type {ShaderMaterial~Shader}
  */
 const ToonShader1 = {
+
+	name: 'ToonShader1',
 
 	uniforms: {
 

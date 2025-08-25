@@ -1,4 +1,7 @@
-/** @module HalftoneShader */
+/**
+ * @module HalftoneShader
+ * @three_import import { HalftoneShader } from 'three/addons/shaders/HalftoneShader.js';
+ */
 
 /**
  * RGB Halftone shader.
@@ -9,7 +12,7 @@
  * Blending Mode (1 = Linear, 2 = Multiply, 3 = Add, 4 = Lighter, 5 = Darker)
  *
  * @constant
- * @type {Object}
+ * @type {ShaderMaterial~Shader}
  */
 const HalftoneShader = {
 

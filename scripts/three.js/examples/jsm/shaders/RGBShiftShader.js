@@ -1,4 +1,7 @@
-/** @module RGBShiftShader */
+/**
+ * @module RGBShiftShader
+ * @three_import import { RGBShiftShader } from 'three/addons/shaders/RGBShiftShader.js';
+ */
 
 /**
  * RGB Shift Shader
@@ -10,7 +13,7 @@
  * angle: shift angle in radians
  *
  * @constant
- * @type {Object}
+ * @type {ShaderMaterial~Shader}
  */
 const RGBShiftShader = {
 

@@ -1,4 +1,7 @@
-/** @module BrightnessContrastShader */
+/**
+ * @module BrightnessContrastShader
+ * @three_import import { BrightnessContrastShader } from 'three/addons/shaders/BrightnessContrastShader.js';
+ */
 
 /**
  * Brightness and contrast adjustment {@link https://github.com/evanw/glfx.js}.
@@ -6,7 +9,7 @@
  * Contrast: -1 to 1 (-1 is solid gray, 0 is no change, and 1 is maximum contrast)
  *
  * @constant
- * @type {Object}
+ * @type {ShaderMaterial~Shader}
  */
 const BrightnessContrastShader = {
 

@@ -2,13 +2,16 @@ import {
 	Color
 } from 'three';
 
-/** @module ColorifyShader */
+/**
+ * @module ColorifyShader
+ * @three_import import { ColorifyShader } from 'three/addons/shaders/ColorifyShader.js';
+ */
 
 /**
  * Colorify shader.
  *
  * @constant
- * @type {Object}
+ * @type {ShaderMaterial~Shader}
  */
 const ColorifyShader = {
 

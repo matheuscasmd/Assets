@@ -1,16 +1,3 @@
-/**
- * @version 1.1.1
- *
- * @desc Load files in LWO3 and LWO2 format on Three.js
- *
- * LWO3 format specification:
- *  https://static.lightwave3d.com/sdk/2019/html/filefmts/lwo3.html
- *
- * LWO2 format specification:
- *  https://static.lightwave3d.com/sdk/2019/html/filefmts/lwo2.html
- *
- **/
-
 import {
 	AddOperation,
 	BackSide,
@@ -61,6 +48,7 @@ let _lwoTree;
  * ```
  *
  * @augments Loader
+ * @three_import import { LWOLoader } from 'three/addons/loaders/LWOLoader.js';
  */
 class LWOLoader extends Loader {
 
@@ -351,7 +339,7 @@ class MaterialParser {
 
 		const maps = this.parseTextureNodes( connections.maps );
 
-		this.parseAttributeImageMaps( connections.attributes, textures, maps, materialData.maps );
+		this.parseAttributeImageMaps( connections.attributes, textures, maps );
 
 		const attributes = this.parseAttributes( connections.attributes, maps );
 
@@ -535,7 +523,7 @@ class MaterialParser {
 
 				const mapData = attribute.maps[ 0 ];
 
-				const path = this.getTexturePathByIndex( mapData.imageIndex, textures );
+				const path = this.getTexturePathByIndex( mapData.imageIndex );
 				if ( ! path ) return;
 
 				const texture = this.loadTexture( path );
@@ -822,8 +810,8 @@ class GeometryParser {
 
 		geometry.computeVertexNormals();
 
-		this.parseUVs( geometry, layer, indices );
-		this.parseMorphTargets( geometry, layer, indices );
+		this.parseUVs( geometry, layer );
+		this.parseMorphTargets( geometry, layer );
 
 		// TODO: z may need to be reversed to account for coordinate system change
 		geometry.translate( - layer.pivot[ 0 ], - layer.pivot[ 1 ], - layer.pivot[ 2 ] );

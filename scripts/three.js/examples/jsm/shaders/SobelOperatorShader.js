@@ -2,7 +2,10 @@ import {
 	Vector2
 } from 'three';
 
-/** @module SobelOperatorShader */
+/**
+ * @module SobelOperatorShader
+ * @three_import import { SobelOperatorShader } from 'three/addons/shaders/SobelOperatorShader.js';
+ */
 
 /**
  * Sobel Edge Detection (see {@link https://youtu.be/uihBwtPIBxM}).
@@ -10,7 +13,7 @@ import {
  * As mentioned in the video the Sobel operator expects a grayscale image as input.
  *
  * @constant
- * @type {Object}
+ * @type {ShaderMaterial~Shader}
  */
 const SobelOperatorShader = {
 

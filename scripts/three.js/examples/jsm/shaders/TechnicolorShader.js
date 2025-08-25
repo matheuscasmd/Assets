@@ -1,4 +1,7 @@
-/** @module TriangleBlurShader */
+/**
+ * @module TriangleBlurShader
+ * @three_import import { TriangleBlurShader } from 'three/addons/shaders/TriangleBlurShader.js';
+ */
 
 /**
  * Simulates the look of the two-strip technicolor process popular in early 20th century films.
@@ -6,7 +9,7 @@
  * Demo here: {@link http://charliehoey.com/technicolor_shader/shader_test.html}
  *
  * @constant
- * @type {Object}
+ * @type {ShaderMaterial~Shader}
  */
 const TechnicolorShader = {
 

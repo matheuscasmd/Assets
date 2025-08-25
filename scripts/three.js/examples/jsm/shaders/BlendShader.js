@@ -1,10 +1,13 @@
-/** @module BlendShader */
+/**
+ * @module BlendShader
+ * @three_import import { BlendShader } from 'three/addons/shaders/BlendShader.js';
+ */
 
 /**
  * Blends two textures.
  *
  * @constant
- * @type {Object}
+ * @type {ShaderMaterial~Shader}
  */
 const BlendShader = {
 

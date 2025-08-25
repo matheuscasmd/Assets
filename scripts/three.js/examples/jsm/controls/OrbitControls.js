@@ -83,6 +83,7 @@ const _EPS = 0.000001;
  * ```
  *
  * @augments Controls
+ * @three_import import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
  */
 class OrbitControls extends Controls {
 
@@ -453,7 +454,7 @@ class OrbitControls extends Controls {
 
 		if ( this.domElement !== null ) {
 
-			this.connect();
+			this.connect( this.domElement );
 
 		}
 
@@ -461,7 +462,9 @@ class OrbitControls extends Controls {
 
 	}
 
-	connect() {
+	connect( element ) {
+
+		super.connect( element );
 
 		this.domElement.addEventListener( 'pointerdown', this._onPointerDown );
 		this.domElement.addEventListener( 'pointercancel', this._onPointerUp );

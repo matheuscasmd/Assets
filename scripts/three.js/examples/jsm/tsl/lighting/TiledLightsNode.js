@@ -40,6 +40,7 @@ const _size = /*@__PURE__*/ new Vector2();
  * a custom implementation.
  *
  * @augments LightsNode
+ * @three_import import { tiledLights } from 'three/addons/tsl/lighting/TiledLightsNode.js';
  */
 class TiledLightsNode extends LightsNode {
 
@@ -197,7 +198,7 @@ class TiledLightsNode extends LightsNode {
 		const tileOffset = element.div( stride );
 		const tileIndex = this._screenTileIndex.mul( int( 2 ) ).add( tileOffset );
 
-		return this._lightIndexes.element( tileIndex ).element( element.modInt( stride ) );
+		return this._lightIndexes.element( tileIndex ).element( element.mod( stride ) );
 
 	}
 
@@ -233,8 +234,8 @@ class TiledLightsNode extends LightsNode {
 		const lightingModel = builder.context.reflectedLight;
 
 		// force declaration order, before of the loop
-		lightingModel.directDiffuse.append();
-		lightingModel.directSpecular.append();
+		lightingModel.directDiffuse.toStack();
+		lightingModel.directSpecular.toStack();
 
 		super.setupLights( builder, lightNodes );
 
@@ -261,7 +262,7 @@ class TiledLightsNode extends LightsNode {
 
 			} );
 
-		} )().append();
+		}, 'void' )();
 
 	}
 
@@ -321,7 +322,7 @@ class TiledLightsNode extends LightsNode {
 		const lightsTexture = new DataTexture( lightsData, lightsData.length / 8, 2, RGBAFormat, FloatType );
 
 		const lightIndexesArray = new Int32Array( count * 4 * 2 );
-		const lightIndexes = attributeArray( lightIndexesArray, 'ivec4' ).label( 'lightIndexes' );
+		const lightIndexes = attributeArray( lightIndexesArray, 'ivec4' ).setName( 'lightIndexes' );
 
 		// compute
 
@@ -341,7 +342,7 @@ class TiledLightsNode extends LightsNode {
 			const tileOffset = elementIndex.div( stride );
 			const tileIndex = instanceIndex.mul( int( 2 ) ).add( tileOffset );
 
-			return lightIndexes.element( tileIndex ).element( elementIndex.modInt( stride ) );
+			return lightIndexes.element( tileIndex ).element( elementIndex.mod( stride ) );
 
 		};
 
@@ -352,7 +353,7 @@ class TiledLightsNode extends LightsNode {
 			const tiledBufferSize = bufferSize.clone().divideScalar( tileSize ).floor();
 
 			const tileScreen = vec2(
-				instanceIndex.modInt( tiledBufferSize.width ),
+				instanceIndex.mod( tiledBufferSize.width ),
 				instanceIndex.div( tiledBufferSize.width )
 			).mul( tileSize ).div( screenSize );
 

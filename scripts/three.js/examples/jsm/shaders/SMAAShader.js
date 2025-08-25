@@ -10,13 +10,14 @@ import {
  * - {@link https://github.com/iryoku/smaa/releases/tag/v2.8}
  *
  * @module SMAAShader
+ * @three_import import { SMAAShader } from 'three/addons/shaders/SMAAShader.js';
  */
 
 /**
  * SMAA Edges shader.
  *
  * @constant
- * @type {Object}
+ * @type {ShaderMaterial~Shader}
  */
 const SMAAEdgesShader = {
 
@@ -129,7 +130,7 @@ const SMAAEdgesShader = {
  * SMAA Weights shader.
  *
  * @constant
- * @type {Object}
+ * @type {ShaderMaterial~Shader}
  */
 const SMAAWeightsShader = {
 
@@ -391,7 +392,7 @@ const SMAAWeightsShader = {
  * SMAA Blend shader.
  *
  * @constant
- * @type {Object}
+ * @type {ShaderMaterial~Shader}
  */
 const SMAABlendShader = {
 
